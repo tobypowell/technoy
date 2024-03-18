@@ -1,12 +1,12 @@
 import React from 'react';
-import { getPostMeta } from '@/utils/getPostMeta';
+import { getPostMeta, getPostSlug } from '@/utils/getPostMeta';
+
 import Post from '@/components/Post';
 
 // getStaticParams, to generate routes at build time
 export const generateStaticParams = async () => {
-  const posts = getPostMeta('src/posts');
-
-  return posts.map((post) => {
+  const slugs = getPostSlug('src/posts');
+  return slugs.map((post) => {
     return { slug: post.slug };
   });
 };
