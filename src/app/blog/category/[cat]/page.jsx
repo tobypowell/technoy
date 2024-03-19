@@ -1,6 +1,5 @@
 import React from 'react';
 import { getPostMeta } from '@/utils/getPostMeta';
-
 import Post from '@/components/Post';
 
 const CategoryPage = ({ params }) => {

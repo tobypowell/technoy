@@ -1,4 +1,5 @@
 import fs from 'fs';
+import path from 'path';
 import matter from 'gray-matter';
 
 // get path from argument
@@ -8,8 +9,12 @@ import matter from 'gray-matter';
 // convert with matter
 // return front matter
 
+const createPath = (dir) => {
+  return path.join(process.cwd(), `posts/${dir}`);
+};
+
 const getPostData = (basePath, slug = null) => {
-  const folder = basePath + '/';
+  const folder = path.join(process.cwd(), `${basePath}/`);
   const files = fs.readdirSync(folder);
   const markdownFiles = files.filter((file) => file.endsWith('.md'));
   const posts = markdownFiles.map((filename) => {
